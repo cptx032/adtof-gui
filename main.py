@@ -61,7 +61,6 @@ class Theme:
     danger: str = "#c92a2a"
     success: str = "#2b8a3e"
     button_text: str = "#000000"
-    footer: str = "#9aa3b2"
 
 
 def is_supported_audio_path(path: pathlib.Path) -> bool:
@@ -256,7 +255,6 @@ class AdtofGui:
             pady=24,
         )
         self._outer: tkinter.Frame = outer
-        self._build_footer(self._root)
         self._build_status(self._root)
         outer.pack(fill="both", expand=True)
         outer.bind("<Configure>", self._on_resize)
@@ -442,19 +440,6 @@ class AdtofGui:
             wraplength=520,
         )
         self._status.pack(fill="x")
-
-    def _build_footer(self, parent: tkinter.Tk) -> None:
-        """Add a discrete credit line at the bottom of the window."""
-        footer: tkinter.Label = tkinter.Label(
-            parent,
-            text="made by Willie Lawrence",
-            bg=self._theme.background,
-            fg=self._theme.footer,
-            font=self._font_small,
-            anchor="e",
-            justify="right",
-        )
-        footer.pack(side="bottom", fill="x", padx=28, pady=(0, 12))
 
     def _on_resize(self, event: tkinter.Event[tkinter.Frame]) -> None:
         """Keep wrapped text aligned with the window width."""
