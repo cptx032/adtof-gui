@@ -1,0 +1,5 @@
+-r requirements.txt
+ruff==0.16.6
+pyright==1.1.411
+rust-just==1.58.0
+pyinstaller==6.22.2
